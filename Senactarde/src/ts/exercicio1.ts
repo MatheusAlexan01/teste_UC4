@@ -3,6 +3,7 @@ class Funcionario{
     email:string;
     telefone:string;
     cargo:string;
+    //Metodo Construtor classe
     constructor(nome:string,email:string,telefone:string,cargo:string){
         this.cargo =cargo,
         this.email = email,
@@ -11,11 +12,18 @@ class Funcionario{
 
 
    }
+   mostrarDados(){
+        console.log('Dados do funcionario')
+        console.log(`Nome: ${this.nome}`)
+        console.log(`E-email:${this.email}`)
+        console.log(`Telefone:${this.telefone}`)
+        console.log(`Cargo:${this.cargo}`)
 
+   }
 }
 
-const Funcionario1 = new Funcionario("matheus","math@gmail","2134234","medico")
-console.log(Funcionario1)
+const funcionario1 = new Funcionario("matheus","math@gmail","2134234","medico")
+console.log(funcionario1.mostrarDados())
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -37,12 +45,21 @@ class Paciente{
         this.data=data
 
     }
-    
+    mostrarDados(){
+        console.log('Dados do Paciente:')
+        console.log(`Nome: ${this.nome}`)
+        console.log(`Idade: ${this.idade}`)
+        console.log(`Faixa de Prioridade: ${this.faixaDeprioridade}`)
+        console.log(`Data nascimento: ${this.data.toLocaleDateString('pt-BR')}`)
+        console.log(`Telefone: ${this.telefone}`)
+        console.log(`Sintomas: ${this.sintomas}`)
+
+    }
 
 }
 
 const paciente1 = new Paciente("Senna","19","Vermelho","32532454","febre,tosse",new Date("1892-01-01"))
-console.log(paciente1)
+console.log(paciente1.mostrarDados())
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -50,17 +67,25 @@ class Consulta{
     paciente:Paciente;
     medico:Funcionario;
     data:Date;
-    tipo:boolean;
-    constructor(paciente: Paciente,medico: Funcionario,data:Date,tipo:boolean){
+    covencio:boolean;
+    constructor(paciente: Paciente,medico: Funcionario,data:Date,covencio:boolean){
         this.paciente = paciente,
         this.medico= medico,
         this.data = data,
-        this.tipo =tipo
+        this.covencio =covencio
 
     }
-    
+    mostrarDados(){
+
+        console.log('Dados da Consulta')
+        console.log(`Paciente:${paciente1.nome}`)
+        console.log(`Medico: ${funcionario1.nome}`)
+        console.log(`Data: ${this.data.toLocaleString('pt-BR')}`)
+        console.log(`Covenio: ${this.covencio}`)
+
+    }
 
 }
 
- const consulta1 = new Consulta(paciente1,Funcionario1, new Date("2129-2-18"),true)
- console.log(consulta1)
+ const consulta1 = new Consulta(paciente1,funcionario1, new Date("2129-2-18"),true)
+ console.log(consulta1.mostrarDados())
