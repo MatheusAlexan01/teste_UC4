@@ -1,120 +1,109 @@
 class Pessoa {
     nome:string;
     telefone:string;
-    rg:string;
+    cpf:string;
     data_nascimento:Date;
-    constructor(nome:string,telefone:string,rg:string,data_nascimento:Date){
+    endereco:any[];
+    email?:string;
+    constructor(nome:string,telefone:string,cpf:string,data_nascimento:Date, endereco:any[],email?:string)
+    {
         this.nome=nome;
         this.telefone=telefone;
-        this.rg=rg;
+        this.cpf=cpf;
         this.data_nascimento=data_nascimento;
+        this.endereco=endereco;
+        this.email=email
 
     }
     mostrarPessoa(){
-        console.log(`Nome: ${this.nome}`)
-        console.log(`telefone: ${this.telefone}`)
-        console.log(`rg: ${this.rg}`)
-        console.log(`data Nascimento: ${this.data_nascimento.toLocaleString('pt-BR')}`)
+        console.log(`NOME: ${this.nome}`)
+        console.log(`TELEFONE: ${this.telefone}`)
+        console.log(`CPF: ${this.cpf}`)
+        console.log(`DATA NASCIMENTO: ${this.data_nascimento.toLocaleString('pt-BR')}`)
+        console.log(`ENDEREÇO ${this.endereco}`)
+        console.log(`E-MAIL: ${this.email}`)
 
     }
- }
 
-class Funcionario extends Pessoa {
-    //atributos proprios da classe funcionario
-    matricula:string;
-    email:string;
-    cargo:string;
-    //Metodo Construtor classe
-    constructor(nome:string,telefone:string,rg:string,data_nascimento:Date,matricula:string,email:string,cargo:string){
-       super(nome,rg,telefone,data_nascimento)
-        this.cargo =cargo,
-        this.email = email,
-        this.matricula=matricula
 
+}
+
+class Funcionario extends Pessoa{
+    setor:string;
+    cargo: string;
+    salario:number
+    constructor(nome: string, telefone: string, cpf: string, data_nascimento:Date,endereco:any[],setor:string,cargo:string,salario:number,email?:string)
+    {
+       super(nome,telefone,cpf,data_nascimento,endereco,email)
+        this.setor = setor;
+        this.cargo=cargo;
+        this.salario=salario;
+       
         
-    
-
-   }
-   mostrarDados(){
-        console.log('Dados do funcionario')
+    }
+    mostrarDados(){
+        console.log("DADOS DO FUNCIONARIO")
         super.mostrarPessoa()
-    
-        console.log(`Matricula:${this.matricula}`)
-        console.log(`Email:${this.email}`)
-        console.log(`Cargo: ${this.cargo}`)
-
-   }
-}
-
-const funcionario1 = new Funcionario('matheus','4354565647','0001',new Date ("2023-2-5"),"546457",'zuzu@',"medico")
-
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-+++++++++++++++++++++++++++++
-
-
-class Paciente extends Pessoa{
-    
-    idade:string;
-    faixaDeprioridade:string;
-    sintomas:string;
-    
-
-    constructor(nome:string,telefone:string,rg:string,data_nascimento:Date,idade:string,faixaDeprioridade:string,sintomas:string){
-        super(nome,telefone,rg,data_nascimento)
-        this.idade = idade,
-        this.faixaDeprioridade = faixaDeprioridade,
-    
-        this.sintomas=sintomas;
-    }
-       
-
-    mostrarDados(){
-        console.log(`Dados Paciente`)
-        super.mostrarPessoa();
-        
-        console.log(`Idade: ${this.idade}`)
-        console.log(`Faixa de Prioridade: ${this.faixaDeprioridade}`)
-        console.log(`Sintomas: ${this.sintomas}`)
+        console.log(`SETOR: ${this.setor}`)
+        console.log(`CARGO: ${this.cargo}`)
+        console.log(`SALARIO: ${this.salario}`)
 
     }
-
 }
+const funcionario1 = new Funcionario('Matheus', '8498293458', '7001923851', new Date ('2001-3-03'),["Rua Natal",1222,"Bairro Potengi"],'TI',"CIO DA PUTARIA",7000,"matheus@gmail")
+console.log(funcionario1.mostrarDados())
 
-const paciente1 = new Paciente('william','235435436','3543645',new Date("2025-5-5"),"19","Vermelho","febre,tosse")
-paciente1.mostrarDados()
-console.log(`===========================================`)
-funcionario1.mostrarDados()
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-class Consulta{
-    paciente:Paciente;
-    medico:Funcionario;
-    data:Date;
+class Paciente extends Pessoa
+{
+    faixadeprioridade:string;
+    sintomas: string;
     covencio:boolean;
-    constructor(paciente: Paciente,medico: Funcionario,data:Date,covencio:boolean){
-        this.paciente = paciente,
-        this.medico= medico,
-        this.data = data,
-        this.covencio =covencio
-
-    }
-    mostrarDados(){
-        console.log(`MOstra dados consulta`)
-
-        console.log(`Medico :${funcionario1.nome}`)
-        console.log(`Paciente: ${paciente1.nome}`)
-       
-        console.log(`Data: ${this.data.toLocaleString('pt-BR')}`)
-        console.log(`Covenio: ${this.covencio}`)
-
-    }
-
+    constructor(nome: string, telefone: string, cpf: string, data_nascimento:Date,endereco:any[],faixaprioridade:string,sintomas:string,convencio:boolean,email?:string)
+    {
+        super(nome,telefone,cpf,data_nascimento,endereco,email)
+        this.faixadeprioridade=faixaprioridade;
+        this.sintomas=sintomas;
+        this.covencio=convencio
+}
+mostarDados(){
+    console.log(`DADOS DO PACIENTE:`)
+    super.mostrarPessoa()
+    console.log(`FAIXA DE PRIORIDADE: ${this.faixadeprioridade}`)
+    console.log(`SINTOMAS:${this.sintomas}`)
+    console.log(`COVÊNIO: ${this.covencio}`)
 }
 
- const consulta1 = new Consulta(paciente1,funcionario1, new Date("9-2-1999"),true)
- 
- 
- //consulta1.mostrarDados()
+}
+const paciente1 = new Paciente ("lucas","84323545","002334989",new Date('1928-4-6'),["travessa lucas",299,"Bairro senac"],"Preta",'fosse,febre,morte',true)
+console.log(paciente1.mostarDados())
 
 
- 
- // ?:  isso quer dizer opcional 
+class Consultas
+{
+    medico:Funcionario;
+    paciente:Paciente;
+    data:Date;
+    local:string;
+    sala: number;
+
+    constructor(medico: Funcionario,paciente:Paciente, data: Date,local: string, sala:number)
+    {
+        this.data = data;
+        this.local = local;
+        this.paciente=paciente;
+        this.medico = medico;
+        this.sala=sala
+    }
+    mostrarConsulta(){
+        console.log(`DADOS DA CONSULTA:`)
+        console.log(`MEDICO: ${funcionario1.nome}`)
+        console.log(`PACIENTE: ${paciente1.nome}`)
+        console.log(`DATA: ${this.data.toLocaleString('pt-BR')}`)
+        console.log(`LOCAL: ${this.local}`)
+        console.log(`SALA: ${this.sala}`)
+    }
+}
+
+const consulta1 = new Consultas(funcionario1,paciente1,new Date ('2022-5-6'),"Pajuçara",55)
+console.log(consulta1.mostrarConsulta())
