@@ -1,17 +1,13 @@
 class CadastroProjeto{
-    nome:string;
-    responsavel:string;
-    cliente:string;
-    datadeEntrega:Date;
-    equipe:string;
-    objetivo:string;
-    constructor(nome:string,responsavel:string,cliente:string,datadeEntrega:Date,equipe:string,objetivo:string){
-        this.nome=nome,
-        this.responsavel=responsavel,
-        this.cliente=cliente,
-        this.datadeEntrega=datadeEntrega,
-        this.equipe=equipe,
-        this.objetivo=objetivo
+   
+    constructor(
+        public nome:string,
+        public responsavel:string,
+        public cliente:string,
+        public datadeEntrega:Date,
+        public equipe:string,
+        public objetivo:string){
+
     }
     mostrarProjeto(){
         console.log(`Nome: ${this.nome}`)
@@ -29,16 +25,13 @@ console.log(projeto1.mostrarProjeto());
 
 
 class ControleTarefas{
-    tarefasInicial:string;
-    gerenciamentoRecursos:string;
-    gerenciamentoFinanceiro:string;
-    funcionario:number;
-    constructor(tarefasInicial:string,gerenciamentoRecursos:string,gerenciamentoFinanceiro:string,funcionario:number){
-        this.tarefasInicial=tarefasInicial,
-        this.gerenciamentoRecursos=gerenciamentoRecursos,
-        this.gerenciamentoFinanceiro=gerenciamentoFinanceiro,
-        this.funcionario=funcionario
-
+    
+    constructor(
+        public tarefasInicial:string,
+        public gerenciamentoRecursos:string,
+        public gerenciamentoFinanceiro:string,
+        public funcionario:number){
+        
     }
     mostrarControle(){
         console.log(`${this.tarefasInicial}`)
@@ -57,11 +50,11 @@ console.log(controle1.mostrarControle());
 
 
 class Comunicacao{
-    HorarioReuniao:string;
-    ComunicaoCliente:string;
-    constructor( HorarioReuniao:string,ComunicaoCliente:string){
-        this.HorarioReuniao=HorarioReuniao;
-        this.ComunicaoCliente=ComunicaoCliente
+   
+    constructor( 
+        public HorarioReuniao:string,
+        public ComunicaoCliente:string){
+        
 
 
     }
@@ -76,3 +69,4 @@ class Comunicacao{
 const comunicacao1 = new Comunicacao ('todos os dias',' 3 vezes na semana')
 
 console.log(comunicacao1.mostrarComunicao());
+

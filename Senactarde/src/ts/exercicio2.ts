@@ -2,17 +2,14 @@ import { ListFormat } from "typescript";
 
 class CadastraLivros {
 
-    titulo: string;
-    paginas: number;
-    autor: string;
-    editora: string;
-    lacamento: Date;
-    constructor(titulo: string, paginas: number, autor: string, editora: string, lacamento: Date) {
-        this.titulo = titulo,
-            this.paginas = paginas,
-            this.autor = autor,
-            this.editora = editora,
-            this.lacamento = lacamento
+    
+    constructor( 
+        public titulo: string, 
+        public paginas: number, 
+        public autor: string, 
+        public editora: string, 
+        public lacamento: Date) {
+        
 
     }
     mostarLivros(){
@@ -29,17 +26,13 @@ const Livros1 = new CadastraLivros("Mãe joana", 656, "tiririca", "lula", new Da
 console.log(Livros1.mostarLivros())
 
 class cadastroUsuarios {
-    nome: string;
-    idade: number;
-    endereco: any[];
-    telefone: string;
-    cpf: string;
-    constructor(nome: string, idade: number, endereco: any[], telefone: string, cpf: string) {
-        this.nome = nome,
-            this.idade = idade,
-            this.endereco = endereco,
-            this.telefone = telefone,
-            this.cpf = cpf
+    
+    constructor( public nome: string, 
+        public idade: number, 
+        public endereco: any[], 
+        public telefone: string, 
+        public cpf: string) {
+        
     }
     mostraUsuarios(){
         console.log(`Nome:${this.nome}`)
@@ -55,17 +48,12 @@ const usuario1 = new cadastroUsuarios("bolsonaro", 12,['Rua Senac,',13,'senac'],
 console.log(usuario1.mostraUsuarios())
 
 class emprestimoLivro {
-    livro: CadastraLivros;
-    usuario: cadastroUsuarios;
-    dataDevolucao: Date;
-    imprestimoRealizados: number;
-    datainicial: Date;
-    constructor(livro: CadastraLivros, usuario: cadastroUsuarios, dataDevolucao: Date, imprestimoRealizados: number, datainicial: Date) {
-        this.livro=livro,
-        this.usuario=usuario,
-        this.dataDevolucao=dataDevolucao,
-        this.imprestimoRealizados=imprestimoRealizados,
-        this.datainicial =datainicial
+    
+    constructor( public livro: CadastraLivros, 
+        public usuario: cadastroUsuarios, 
+        public dataDevolucao: Date, 
+        public imprestimoRealizados: number, 
+        public datainicial: Date) {
 
     }
     mostraremprestimo(){
