@@ -1,4 +1,28 @@
-import { ListFormat } from "typescript";
+class livro{
+
+    constructor(
+        public titulo: string, 
+        public paginas: number, 
+        public autor: string, 
+        public editora: string, 
+        public lacamento: Date
+    ){
+        
+
+
+    }
+    mostrarLivro(){
+        console.log()
+        console.log()
+        console.log()
+        console.log()
+        console.log()
+        
+
+    }
+
+
+}
 
 class CadastraLivros {
 
