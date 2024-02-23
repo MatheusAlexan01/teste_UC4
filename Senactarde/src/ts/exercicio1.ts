@@ -21,7 +21,7 @@ class Pessoa {
 
 }
 
-class Funcionario extends Pessoa {
+export class Funcionario extends Pessoa {
     constructor(
         nome: string,
         telefone: string,
@@ -43,8 +43,8 @@ class Funcionario extends Pessoa {
 
     }
 }
-const funcionario1 = new Funcionario('Matheus', '8498293458', '7001923851', new Date('2001-3-03'), ["Rua Natal", 1222, "Bairro Potengi"], 'TI', "CIO DA PUTARIA", 7000, "matheus@gmail")
-console.log(funcionario1.mostrarDados())
+const funcionario1 = new Funcionario('Matheus', '8498293458', '7001923851', new Date('2001-3-03'), ["Rua Natal", 1222, "Bairro Potengi"], 'TI', "medico", 7000, "matheus@gmail")
+//console.log(funcionario1.mostrarDados())
 
 
 class Paciente extends Pessoa {
@@ -72,7 +72,7 @@ class Paciente extends Pessoa {
 
 }
 const paciente1 = new Paciente("lucas", "84323545", "002334989", new Date('1928-4-6'), ["travessa lucas", 299, "Bairro senac"], "Preta", 'fosse,febre,morte', true)
-console.log(paciente1.mostarDados())
+//console.log(paciente1.mostarDados())
 
 
 class Consultas {
@@ -97,4 +97,4 @@ class Consultas {
 }
 
 const consulta1 = new Consultas(funcionario1, paciente1, new Date('2022-5-6'), "Pajuçara", 55)
-console.log(consulta1.mostrarConsulta())
+//console.log(consulta1.mostrarConsulta())
