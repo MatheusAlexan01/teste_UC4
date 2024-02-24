@@ -1,93 +1,125 @@
-class livro{
+import {Pessoa} from './exercicio1'
 
+class Livro{
     constructor(
         public titulo: string, 
         public paginas: number, 
         public autor: string, 
         public editora: string, 
-        public lacamento: Date
+        public lancamento: Date
     ){
         
-
-
     }
     mostrarLivro(){
-        console.log()
-        console.log()
-        console.log()
-        console.log()
-        console.log()
-        
-
+        console.log(`TÍTULO: ${this.titulo}`)
+        console.log(`PAGINAS: ${this.paginas}`)
+        console.log(`AUTOR: ${this.autor}`)
+        console.log(`EDITORA: ${this.editora}`)
+        console.log(`LANÇAMENTO: ${this.lancamento.toLocaleString('pt-BR')}`)
     }
-
 
 }
 
-class CadastraLivros {
-
-    
+class Deposito extends Livro {
     constructor( 
-        public titulo: string, 
-        public paginas: number, 
-        public autor: string, 
-        public editora: string, 
-        public lacamento: Date) {
+         titulo: string, 
+         paginas: number, 
+         autor: string, 
+         editora: string, 
+         lacamento: Date,
+         public quantidade:number
+
+        ) {
+        super(titulo,paginas,autor,editora,lacamento)
+        this.quantidade=quantidade;
+
+    }
+    mostrarDeposito(){
+        console.log(`DADOS DO LIVRO`)
+        super.mostrarLivro()
+        console.log(`QUANTIDO EM ESTOQUE ${this.quantidade}`)
+    }
+}
+
+const livro1 = new Deposito ("Guerra e Paz", 1200, "Matheus", "Arqueiro", new Date("1243-12-22"),50)
+livro1.mostrarDeposito()
+
+console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+
+class Usuario extends Pessoa{
+constructor(
+     nome: string,
+     telefone: string,
+     cpf: string,
+     data_nascimento: Date,
+     endereco: any[],
+     email?: string
+){super(nome,telefone,cpf,data_nascimento,endereco,email)}
+mostarUsuario(){
+    console.log('DADOS DO USUARIO')
+    super.mostrarPessoa()
+
+}
+}
+
+const usuario1 = new Usuario ('Matheus','0099933110','70012200',new Date('2000-4-18'),['Rua Senac',500,'Bairro Petropolis'],'')
+usuario1.mostarUsuario()
+
+console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+
+
+class Historico {
+    constructor(
+        public nome: Usuario,
+        public telefone: Usuario,
+        public cpf: Usuario,
+        public empresti:number,
+        public devolu:number
+        ){}
+        mostrarHistorico(){
+            console.log('DADOS DO HISTÓRICO')
+            console.log(`NOME: ${usuario1.nome}`)
+            console.log(`TELEFONE: ${usuario1.telefone}`)
+            console.log(`CPF: ${usuario1.cpf}`)
+            console.log(`HISTORÍCO DE EMPRESTIMOS: ${this.empresti}`)
+            console.log(`HISTORÍCO DE DEVOLUÇÕES: ${this.devolu}`)
+           
+
+        }
+        
+}
+
+const historico1 = new Historico (usuario1,usuario1,usuario1,10,8)
+historico1.mostrarHistorico()
+
+console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+
+class Emprestimo extends Pessoa{
+    constructor(
+        nome: string,
+        telefone: string,
+        cpf: string,
+        data_nascimento: Date,
+        endereco: any[],
+        public livro:Livro,
+        public data_incial:Date,
+        public data_devolucao:Date,
+        public emprestiR:Historico,
+        email?: string
+        ){super(nome,telefone,cpf,data_nascimento,endereco,email)
+
+    }mostrarEmprestimo(){
+        console.log(`DADOS EMPRESTIMO`)
+        super.mostrarPessoa()
+        console.log(`LIVRO EMPRESTADO: ${livro1.titulo}`)
+        console.log(`DATA DO EMPRESTIMO: ${this.data_incial.toLocaleString('pt-BR')}`)
+        console.log(`DATA DE DEVOLUÇÃO ${this.data_devolucao.toLocaleString('pt-BR')}`)
+        console.log(`REGISTRO DE EMPRESTIMOS: ${historico1.empresti}`)
         
 
     }
-    mostarLivros(){
-        console.log(`Titulo ${this.titulo}`)
-        console.log(`Paginas: ${this.paginas}`)
-        console.log(`Autor:${this.autor}`)
-        console.log(`Editora: ${this.editora}`)
-        console.log(`Lançamento: ${this.lacamento.toLocaleString('pt-BR')}`)
-
-    }
 }
 
-const Livros1 = new CadastraLivros("Mãe joana", 656, "tiririca", "lula", new Date("1243-12-22"))
-console.log(Livros1.mostarLivros())
-
-class cadastroUsuarios {
-    
-    constructor( public nome: string, 
-        public idade: number, 
-        public endereco: any[], 
-        public telefone: string, 
-        public cpf: string) {
-        
-    }
-    mostraUsuarios(){
-        console.log(`Nome:${this.nome}`)
-        console.log(`idade:${this.idade}`)
-        console.log(`endereço:${this.endereco}`)
-        console.log(`Telefone:${this.telefone}`)
-        console.log(`CPF:${this.cpf}`)
-
-    }
-}
-
-const usuario1 = new cadastroUsuarios("bolsonaro", 12,['Rua Senac,',13,'senac'], "2314234", "4593485")
-console.log(usuario1.mostraUsuarios())
-
-class emprestimoLivro {
-    
-    constructor( public livro: CadastraLivros, 
-        public usuario: cadastroUsuarios, 
-        public dataDevolucao: Date, 
-        public imprestimoRealizados: number, 
-        public datainicial: Date) {
-
-    }
-    mostraremprestimo(){
-        console.log(`Livro ${Livros1.titulo}`)
-        console.log(`Usuario ${usuario1.nome}`)
-        console.log(`Data de Devolução ${this.dataDevolucao.toLocaleString('pt-BR')}`)
-        console.log(` Imprestimos de Livros ${this.imprestimoRealizados}`)
-        console.log(`Data inicial ${this.datainicial.toLocaleString('pt-BR')}`)
-    }
-
-}
-const emprestimoLivro1 = new emprestimoLivro (Livros1,usuario1, new Date ('2023-12-20'),1,new Date('2024-3-13'))
-console.log(emprestimoLivro1.mostraremprestimo())
+const emprestimo1 = new Emprestimo ('Matheus','0099933110','70012200',new Date('2000-4-18'),['Rua Senac',500,'Bairro Petropolis'],livro1,new Date('2024-2-1'),new Date('2024-3-2'),historico1,'')
+ 
+emprestimo1.mostrarEmprestimo()
