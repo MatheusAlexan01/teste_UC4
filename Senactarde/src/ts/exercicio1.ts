@@ -1,4 +1,4 @@
-export class Pessoa {
+ export class Pessoa {
 
     constructor(
         public nome: string,
@@ -17,9 +17,16 @@ export class Pessoa {
         console.log(`E-MAIL: ${this.email}`)
 
     }
+    getcpf(): string{
+        return this.cpf
+    }
+    setcpf(cpf: string): void{
+        this.cpf = cpf
+    }
+
+    }
 
 
-}
 
 export class Funcionario extends Pessoa {
     constructor(
@@ -43,8 +50,11 @@ export class Funcionario extends Pessoa {
 
     }
 }
-const funcionario1 = new Funcionario('Matheus', '8498293458', '7001923851', new Date('2001-3-03'), ["Rua Natal", 1222, "Bairro Potengi"], 'TI', "medico", 7000, "matheus@gmail")
+const funcionario1 = new Funcionario('Matheus', '8498293458', '7001923851', new Date('2001-3-03'), ["Rua Natal", 122, "Bairro Potengi"], 'TI', "medico", 7000, "matheus@gmail")
 //console.log(funcionario1.mostrarDados())
+funcionario1.setcpf('daruis@zaaa')
+console.log(funcionario1.getcpf())
+
 
 
 class Paciente extends Pessoa {
@@ -73,6 +83,8 @@ class Paciente extends Pessoa {
 }
 const paciente1 = new Paciente("lucas", "84323545", "002334989", new Date('1928-4-6'), ["travessa lucas", 299, "Bairro senac"], "Preta", 'fosse,febre,morte', true)
 //console.log(paciente1.mostarDados())
+
+
 
 
 class Consultas {

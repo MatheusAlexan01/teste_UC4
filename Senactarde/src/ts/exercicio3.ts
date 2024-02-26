@@ -1,4 +1,4 @@
-class Cliente{
+  abstract class Cliente{
 constructor(
     public nome:String,
     public CPF?:Boolean,
@@ -8,10 +8,9 @@ constructor(
 
 }
 mostrarPessoa(){
-    console.log(`PESSOA OU ORGÃO SOLICITANTE: ${this.nome}`)
-    console.log(`PESSOA FISICA ? : ${this.CPF}`)
-    console.log(`PESSA JURIDICA ?: ${this.CNPJ}`)
-}
+    
+} 
+
 
 
 }
@@ -40,24 +39,37 @@ class cadastroContas extends Cliente {
         CPF:Boolean,
         CNPJ:Boolean,
         public titularConta: string,
-        public saldo: number,
-        public tipo: string,
+        private saldo: number,
+        
         public limiteTransacoesMensal: number) {
         super(nome,CPF,CNPJ)
     }
     mostarConta() {
-        super.mostrarPessoa()
+        console.log(`PESSOA OU ORGÃO SOLICITANTE: ${this.nome}`)
+        console.log(`PESSOA FISICA ? : ${this.CPF}`)
+        console.log(`PESSA JURIDICA ?: ${this.CNPJ}`)
         console.log(`Titular Conta: ${this.titularConta}`)
-        console.log(`Saldo: ${this.saldo}`)
-        console.log(`Tipo: ${this.tipo}`)
+        console.log(`Saldo: ${this.getsaldo()}`)
+        
         console.log(`Limite de Transações Mensais: ${this.limiteTransacoesMensal}`)
+    }
+
+    getsaldo(): number{
+        return this.saldo
+    }
+
+    setsaldo(saldo: number):void{
+        this.saldo=saldo
+
     }
 
 }
 
 
-const contas1 = new cadastroContas('Matheus Alexandre Ferreira', true, false, "MATHEUS A F",10,"Correte", 30)
-console.log(contas1.mostarConta())
+const contas1 = new cadastroContas('Val', true, false, "MATHEUS A F",10, 30)
+contas1.mostarConta()
+contas1.setsaldo(100000)
+console.log(contas1.getsaldo())
 
 console.log("#################################################################################")
 

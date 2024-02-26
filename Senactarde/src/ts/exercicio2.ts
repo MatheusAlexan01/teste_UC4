@@ -1,21 +1,22 @@
 import {Pessoa} from './exercicio1'
 
-class Livro{
+abstract class Livro{
     constructor(
         public titulo: string, 
         public paginas: number, 
         public autor: string, 
-        public editora: string, 
+        private editora: string, 
         public lancamento: Date
     ){
         
     }
-    mostrarLivro(){
-        console.log(`TÍTULO: ${this.titulo}`)
-        console.log(`PAGINAS: ${this.paginas}`)
-        console.log(`AUTOR: ${this.autor}`)
-        console.log(`EDITORA: ${this.editora}`)
-        console.log(`LANÇAMENTO: ${this.lancamento.toLocaleString('pt-BR')}`)
+    mostrarLivro(){ 
+    }
+    geteditora():string{
+        return this.editora
+    }
+    seteditora(editora: string): void{
+        this.editora =editora
     }
 
 }
@@ -36,13 +37,19 @@ class Deposito extends Livro {
     }
     mostrarDeposito(){
         console.log(`DADOS DO LIVRO`)
-        super.mostrarLivro()
+        console.log(`TÍTULO: ${this.titulo}`)
+        console.log(`PAGINAS: ${this.paginas}`)
+        console.log(`AUTOR: ${this.autor}`)
+        console.log(`EDITORA: ${super.geteditora()}`)
+        console.log(`LANÇAMENTO: ${this.lancamento.toLocaleString('pt-BR')}`)
         console.log(`QUANTIDO EM ESTOQUE ${this.quantidade}`)
     }
 }
 
 const livro1 = new Deposito ("Guerra e Paz", 1200, "Matheus", "Arqueiro", new Date("1243-12-22"),50)
 livro1.mostrarDeposito()
+
+
 
 console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
 
@@ -70,11 +77,8 @@ console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 class Historico {
     constructor(
-        public nome: Usuario,
-        public telefone: Usuario,
-        public cpf: Usuario,
-        public empresti:number,
-        public devolu:number
+        private empresti:number,
+        private devolu:number
         ){}
         mostrarHistorico(){
             console.log('DADOS DO HISTÓRICO')
@@ -86,11 +90,17 @@ class Historico {
            
 
         }
+
+        getempresti(): number{
+            return this.empresti
+        }
+        setempresti(empresti: number): void{
+            this.empresti = empresti
+        }  
         
 }
 
-const historico1 = new Historico (usuario1,usuario1,usuario1,10,8)
-historico1.mostrarHistorico()
+const historico1 = new Historico (8,5)
 
 console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
 
@@ -114,7 +124,7 @@ class Emprestimo extends Pessoa{
         console.log(`LIVRO EMPRESTADO: ${livro1.titulo}`)
         console.log(`DATA DO EMPRESTIMO: ${this.data_incial.toLocaleString('pt-BR')}`)
         console.log(`DATA DE DEVOLUÇÃO ${this.data_devolucao.toLocaleString('pt-BR')}`)
-        console.log(`REGISTRO DE EMPRESTIMOS: ${historico1.empresti}`)
+        console.log(`REGISTRO DE EMPRESTIMOS: ${historico1.getempresti()}`)
         
 
     }

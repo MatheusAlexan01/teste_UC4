@@ -1,10 +1,9 @@
-class CadastroProjeto{
+class Projeto{
    
     constructor(
         public nome:string,
         public responsavel:string,
         public cliente:string,
-        public datadeEntrega:Date,
         public equipe:string,
         public objetivo:string){
 
@@ -13,30 +12,31 @@ class CadastroProjeto{
         console.log(`Nome: ${this.nome}`)
         console.log(`Responsavel: ${this.responsavel}`)
         console.log(`Cliente: ${this.cliente}`)
-        console.log(`Data de Entrega: ${this.datadeEntrega.toLocaleString('pt-BR')}`)
         console.log(`Equipe: ${this.equipe}`)
         console.log(`Objetivo: ${this.objetivo}`)
 
     }
+
+    
 }
 
-const projeto1 = new CadastroProjeto ('Fome Zero','icaro','População da cidade',new Date ('2024-02-20'),'operacional','acabar com a fome no estado')
+const projeto1 = new Projeto ('Fome Zero','icaro','População da cidade','operacional','acabar com a fome no estado')
 console.log(projeto1.mostrarProjeto());
 
 
-class ControleTarefas{
+class Tarefas{
     
     constructor(
-        public tarefasInicial:string,
-        public gerenciamentoRecursos:string,
-        public gerenciamentoFinanceiro:string,
+        public responsavel:string,
+        public setor:string,
+        public Atribuicoes:string,
         public funcionario:number){
         
     }
     mostrarControle(){
-        console.log(`${this.tarefasInicial}`)
-        console.log(`${this.gerenciamentoRecursos}`)
-        console.log(`${this.gerenciamentoFinanceiro}`)
+        console.log(`${this.responsavel}`)
+        console.log(`${this.setor}`)
+        console.log(`${this.Atribuicoes}`)
         console.log(`${this.funcionario}`)
         
 
@@ -45,7 +45,23 @@ class ControleTarefas{
 
 }
 
-const controle1 = new ControleTarefas ('planejamento','Escopo de recursos','Verbas',120)
+class Progresso{
+    constructor(
+        public etapas_projetos:string,
+        public etapas_equipe:string,
+        public datafinal_projeto:Date,
+
+    ){
+        
+
+    }
+
+
+}
+
+
+
+const controle1 = new Tarefas ('planejamento','Escopo de recursos','Verbas',120)
 console.log(controle1.mostrarControle());
 
 
