@@ -2,7 +2,7 @@
 
     constructor(
         public nome: string,
-        public telefone: string,
+        private telefone: string,
         public cpf: string,
         public data_nascimento: Date,
         public endereco: any[],
@@ -17,11 +17,11 @@
         console.log(`E-MAIL: ${this.email}`)
 
     }
-    getcpf(): string{
-        return this.cpf
+    gettelefone(): string{
+        return this.telefone
     }
-    setcpf(cpf: string): void{
-        this.cpf = cpf
+    settelefone(telefone: string): void{
+        this.telefone = telefone
     }
 
     }
@@ -52,8 +52,8 @@ export class Funcionario extends Pessoa {
 }
 const funcionario1 = new Funcionario('Matheus', '8498293458', '7001923851', new Date('2001-3-03'), ["Rua Natal", 122, "Bairro Potengi"], 'TI', "medico", 7000, "matheus@gmail")
 //console.log(funcionario1.mostrarDados())
-funcionario1.setcpf('daruis@zaaa')
-console.log(funcionario1.getcpf())
+funcionario1.settelefone('daruis@zaaa')
+console.log(funcionario1.gettelefone())
 
 
 

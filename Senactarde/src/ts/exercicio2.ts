@@ -81,10 +81,6 @@ class Historico {
         private devolu:number
         ){}
         mostrarHistorico(){
-            console.log('DADOS DO HISTÓRICO')
-            console.log(`NOME: ${usuario1.nome}`)
-            console.log(`TELEFONE: ${usuario1.telefone}`)
-            console.log(`CPF: ${usuario1.cpf}`)
             console.log(`HISTORÍCO DE EMPRESTIMOS: ${this.empresti}`)
             console.log(`HISTORÍCO DE DEVOLUÇÕES: ${this.devolu}`)
            
