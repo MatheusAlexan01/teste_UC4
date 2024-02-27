@@ -1,4 +1,4 @@
-import {Funcionario} from './exercicio1'
+/* import {Funcionario} from './exercicio1'
 
 class Desenvolverdor extends Funcionario{
     constructor(
@@ -115,4 +115,4 @@ class FullStack extends Desenvolverdor {
 }
 
 const FullStack1 = new FullStack ('Rodo','84324895','700902394',new Date ('2021-1-23'),['rua senac',93248],' meio','Desenvolvedor FULL',456547,'Coda tanto em front quanto em Back e resolver problemas','@gmail')
-FullStack1.mostrarFull()
+FullStack1.mostrarFull() */

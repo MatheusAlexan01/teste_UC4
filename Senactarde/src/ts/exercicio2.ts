@@ -1,4 +1,4 @@
-import {Pessoa} from './exercicio1'
+/* import {Pessoa} from './exercicio1'
 
 abstract class Livro{
     constructor(
@@ -81,6 +81,10 @@ class Historico {
         private devolu:number
         ){}
         mostrarHistorico(){
+            console.log('DADOS DO HISTÓRICO')
+            console.log(`NOME: ${usuario1.nome}`)
+            console.log(`TELEFONE: ${usuario1.telefone}`)
+            console.log(`CPF: ${usuario1.cpf}`)
             console.log(`HISTORÍCO DE EMPRESTIMOS: ${this.empresti}`)
             console.log(`HISTORÍCO DE DEVOLUÇÕES: ${this.devolu}`)
            
@@ -129,3 +133,4 @@ class Emprestimo extends Pessoa{
 const emprestimo1 = new Emprestimo ('Matheus','0099933110','70012200',new Date('2000-4-18'),['Rua Senac',500,'Bairro Petropolis'],livro1,new Date('2024-2-1'),new Date('2024-3-2'),historico1,'')
  
 emprestimo1.mostrarEmprestimo()
+ */

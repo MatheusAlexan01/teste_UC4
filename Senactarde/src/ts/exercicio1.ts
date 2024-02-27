@@ -1,8 +1,8 @@
- export class Pessoa {
+ class Pessoa {
 
     constructor(
         public nome: string,
-        private telefone: string,
+        public telefone: string,
         public cpf: string,
         public data_nascimento: Date,
         public endereco: any[],
@@ -17,45 +17,81 @@
         console.log(`E-MAIL: ${this.email}`)
 
     }
-    gettelefone(): string{
-        return this.telefone
-    }
-    settelefone(telefone: string): void{
-        this.telefone = telefone
-    }
+   
 
-    }
+ }
 
 
 
-export class Funcionario extends Pessoa {
+ class Funcionario extends Pessoa {
     constructor(
         nome: string,
         telefone: string,
         cpf: string,
         data_nascimento: Date,
         endereco: any[],
-        public setor: string,
         public cargo: string,
-        public salario: number,
+        public matricula:string,
+        public genero?:string,
         email?: string) {
         super(nome, telefone, cpf, data_nascimento, endereco, email);
     }
     mostrarDados() {
         console.log("DADOS DO FUNCIONARIO")
         super.mostrarPessoa()
-        console.log(`SETOR: ${this.setor}`)
         console.log(`CARGO: ${this.cargo}`)
-        console.log(`SALARIO: ${this.salario}`)
+        console.log(`MATRICULA: ${this.matricula}`)
+        console.log (`GENERO: ${this.genero}`)
 
     }
 }
-const funcionario1 = new Funcionario('Matheus', '8498293458', '7001923851', new Date('2001-3-03'), ["Rua Natal", 122, "Bairro Potengi"], 'TI', "medico", 7000, "matheus@gmail")
-//console.log(funcionario1.mostrarDados())
-funcionario1.settelefone('daruis@zaaa')
-console.log(funcionario1.gettelefone())
+const funcionario1 = new Funcionario('Matheus', '8498293458', '7001923851', new Date('2001-3-03'), ["Rua Natal", 122, "Bairro Potengi"], "medico",'123000','masculino', "matheus@gmail")
+funcionario1.mostrarDados()
 
 
+document.addEventListener('DOMContentLoaded',
+
+function(){
+const form = document.querySelector('#formFuncionario');
+if(form){
+    form.addEventListener('submit',
+    function(event){
+        event.preventDefault();
+    
+
+
+const nome  = (document.getElementById('nome')as HTMLInputElement).value;
+const email  = (document.getElementById('email')as HTMLInputElement).value;
+const telefone  = (document.getElementById('telefone')as HTMLInputElement).value;
+const cpf  = (document.getElementById('cpf')as HTMLInputElement).value;
+const dataformada  = (document.getElementById('dataNascimento')as HTMLInputElement).value;
+const cargo  = (document.getElementById('cargo')as HTMLInputElement).value;
+const matricula  = (document.getElementById('matricula')as HTMLInputElement).value;
+const endereco  = (document.getElementById('endereco')as HTMLInputElement).value;
+const genero = (document.getElementById('genero')as HTMLSelectElement).value;
+
+const data =  new Date( dataformada).toLocaleDateString('pt-BR')
+
+localStorage.setItem('nome',nome)
+localStorage.setItem('email',email)
+localStorage.setItem('telefone',telefone)
+localStorage.setItem('cpf',cpf)
+localStorage.setItem('dataNascimento',data)
+localStorage.setItem('cargo',cargo)
+localStorage.setItem('matricula',matricula)
+localStorage.setItem('endereco',endereco)
+localStorage.setItem('genero',genero)
+
+window.location.href = './funcionario.html';
+
+});
+
+}else{
+
+    console.error('Formulario não encontrado!')
+}
+
+})
 
 class Paciente extends Pessoa {
     
